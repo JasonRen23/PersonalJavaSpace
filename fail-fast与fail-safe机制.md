@@ -56,9 +56,10 @@ fail-fast会在以下两种情况下抛出ConcurrentModificationException
                 throw new ConcurrentModificationException();  
             }  
         }  
-        可以看到它的标记“mode”为 expectedModeCount
+      
 ```
-
+  可以看到它的标记“mode”为 expectedModeCount
+  
 4. fail-safe机制
 
 fail-safe任何对集合结构的修改都会在一个复制的集合上进行修改，因此不会抛出ConcurrentModificationException
