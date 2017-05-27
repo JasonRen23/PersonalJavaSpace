@@ -155,11 +155,12 @@ iPhone
 
 
 
-  	Fail Fast Iterator 	Fail Safe Iterator
-Throw ConcurrentModification Exception 	Yes 	No
-Clone object 	No 	Yes
-Memory Overhead 	No 	Yes
-Examples 	HashMap,Vector,ArrayList,HashSet 	
+  	                                   | Fail Fast Iterator | Fail Safe Iterator
+                                       ------------ | -------------
+Throw ConcurrentModification Exception |Yes | No
+Clone object |No | Yes
+Memory Overhead |	No |	Yes
+Examples 	|HashMap,Vector,ArrayList,HashSet |	
 CopyOnWriteArrayList,
 ConcurrentHashMap
 
