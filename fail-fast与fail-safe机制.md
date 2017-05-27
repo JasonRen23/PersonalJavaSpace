@@ -154,12 +154,12 @@ iPhone
 6. fail-fast和 fail-safe 的区别
 
 
-Difference| Fail Fast Iterator | Fail Safe Iterator
+Difference | Fail Fast Iterator | Fail Safe Iterator
 ------------ | -------------
-                                       Throw ConcurrentModification Exception |Yes | No
-                                              Clone object |No | Yes
-                                                  Memory Overhead |	No |	Yes
-                                  Examples 	|HashMap,Vector,ArrayList,HashSet |	CopyOnWriteArrayList,ConcurrentHashMap
+Throw ConcurrentModification Exception | Yes | No
+Clone object | No | Yes
+Memory Overhead | No | Yes
+Examples | HashMap,Vector,ArrayList,HashSet | CopyOnWriteArrayList,ConcurrentHashMap
 
 表目|第一表头 | 第二表头
 ------------ | -------------
