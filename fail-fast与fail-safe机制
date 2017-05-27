@@ -71,7 +71,7 @@ fail-safe机制有两个问题
 
 5 fail-fast 和 fail-safe的例子
 
-[java] view plain copy
+```Java
 
     import java.util.HashMap;  
     import java.util.Iterator;  
@@ -99,7 +99,7 @@ fail-safe机制有两个问题
         }  
           
     }  
-
+```
 
 输出
 
