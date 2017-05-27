@@ -125,8 +125,7 @@ Exception in thread "main" java.util.ConcurrentModificationException
           
         public static void main(String[] args)  
         {  
-            ConcurrentHashMap<String,String> premiumPhone =   
-                                   new ConcurrentHashMap<String,String>();  
+            ConcurrentHashMap<String,String> premiumPhone = new ConcurrentHashMap<String,String>();  
             premiumPhone.put("Apple", "iPhone");  
             premiumPhone.put("HTC", "HTC one");  
             premiumPhone.put("Samsung","S5");  
