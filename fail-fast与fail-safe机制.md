@@ -23,10 +23,11 @@ fail-fast会在以下两种情况下抛出ConcurrentModificationException
 
 3. fail-fast机制是如何检测的？
 
-迭代器在遍历过程中是直接访问内部数据的，因此内部的数据在遍历的过程中无法被修改。为了保证不被修改，迭代器内部维护了一个标记 “mode” ，当集合结构改变（添加删除或者修改），标记"mode"会被修改，而迭代器每次的hasNext()和next()方法都会检查该"mode"是否被改变，当检测到被修改时，抛出Concurrent Modification Exception
+迭代器在遍历过程中是直接访问内部数据的，因此内部的数据在遍历的过程中无法被修改。为了保证不被修改，迭代器内部维护了一个标记 “mode” ，当集合结构改变（添加删除或者修改），标记"mode"会被修改，而迭代器每次的hasNext()和next()方法都会检查该"mode"是否被改变，当检测到被修改时，抛出Concurrent Modification Exception。
 
-。下面看看ArrayList迭代器部分的源码
+下面看看ArrayList迭代器部分的源码
 
+```Java
 
     private class Itr implements Iterator<E> {  
             int cursor;  
@@ -56,7 +57,7 @@ fail-fast会在以下两种情况下抛出ConcurrentModificationException
             }  
         }  
         可以看到它的标记“mode”为 expectedModeCount
-
+```
 
 4. fail-safe机制
 
