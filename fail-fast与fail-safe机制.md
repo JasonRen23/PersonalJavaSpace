@@ -4,7 +4,7 @@
 
 2.什么是 fail-fast 机制?
 
-fail-fast机制在遍历一个集合时，当集合结构被修改，会抛出Concurrent Modification Exception。
+fail-fast机制在遍历一个集合时，当集合结构被修改，会抛出ConcurrentModificationException。
 
 fail-fast会在以下两种情况下抛出ConcurrentModificationException
 
@@ -164,10 +164,9 @@ CopyOnWriteArrayList,
 ConcurrentHashMap
 
 
-| First Header  | Second Header |
-
-| ------------- | ------------- |
-
-| Content Cell  | Content Cell  |
-
-| Content Cell  | Content Cell  |
+---
+order: 0
+title:
+   zh-CN
+   en_US
+---
