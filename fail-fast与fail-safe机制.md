@@ -1,8 +1,8 @@
-1.什么是同步修改？
+1. 什么是同步修改？
 
 当一个或多个线程正在遍历一个集合Collection，此时另一个线程修改了这个集合的内容（添加，删除或者修改）。这就是并发修改
 
-2.什么是 fail-fast 机制?
+2. 什么是 fail-fast 机制?
 
 fail-fast机制在遍历一个集合时，当集合结构被修改，会抛出ConcurrentModificationException。
 
@@ -71,7 +71,7 @@ fail-safe机制有两个问题
 （2）无法保证读取的数据是目前原始数据结构中的数据。
 
 
-5 fail-fast 和 fail-safe的例子
+5. fail-fast 和 fail-safe的例子
 
 ```Java
 
