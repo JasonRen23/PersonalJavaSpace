@@ -103,16 +103,16 @@ fail-safe机制有两个问题
 ```
 
 输出
-
+```Java
 iPhone 
 
 Exception in thread "main" java.util.ConcurrentModificationException
         at java.util.HashMap$HashIterator.nextEntry(Unknown Source)
         at java.util.HashMap$KeyIterator.next(Unknown Source)
         at FailFastExample.main(FailFastExample.java:20)
+```
 
-
-[java] view plain copy
+```Java
 
     import java.util.concurrent.ConcurrentHashMap;  
     import java.util.Iterator;  
@@ -141,14 +141,14 @@ Exception in thread "main" java.util.ConcurrentModificationException
         }  
           
     }  
-
+```
 
 输出
-
+```Java
 S5
 HTC one
 iPhone
-
+```
 
 6. fail-fast和 fail-safe 的区别
 
