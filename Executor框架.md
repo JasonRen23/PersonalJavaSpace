@@ -1,7 +1,7 @@
 Executor框架是指java 5中引入的一系列并发库中与executor相关的一些功能类，其中包括线程池，Executor，Executors，ExecutorService，CompletionService，Future，Callable等。他们的关系为：
 
-
 并发编程的一种编程方式是把任务拆分为一些列的小任务，即Runnable，然后在提交给一个Executor执行，Executor.execute(Runnalbe) 。Executor在执行时使用内部的线程池完成操作。
+
 一、创建线程池
 
 Executors类，提供了一系列工厂方法用于创先线程池，返回的线程池都实现了ExecutorService接口。
@@ -21,7 +21,7 @@ public static ExecutorService newSingleThreadExecutor()
 public static ScheduledExecutorService newScheduledThreadPool(int corePoolSize)
 
 创建一个支持定时及周期性的任务执行的线程池，多数情况下可用来替代Timer类。
-Java代码:
+
 ```Java
     Executor executor = Executors.newFixedThreadPool(10);  
     Runnable task = new Runnable() {  
@@ -41,7 +41,7 @@ Java代码:
 ExecutorService扩展了Executor并添加了一些生命周期管理的方法。一个Executor的生命周期有三种状态，运行 ，关闭 ，终止 。Executor创建时处于运行状态。当调用ExecutorService.shutdown()后，处于关闭状态，isShutdown()方法返回true。这时，不应该再想Executor中添加任务，所有已添加的任务执行完毕后，Executor处于终止状态，isTerminated()返回true。
 
 如果Executor处于关闭状态，往Executor提交任务会抛出unchecked exception RejectedExecutionException。
-Java代码:
+
 ```Java
     ExecutorService executorService = (ExecutorService) executor;  
     while (!executorService.isShutdown()) {  
@@ -56,7 +56,7 @@ Java代码:
  三、使用Callable，Future返回结果
 
 Future<V>代表一个异步执行的操作，通过get()方法可以获得操作的结果，如果异步操作还没有完成，则，get()会使当前线程阻塞。FutureTask<V>实现了Future<V>和Runable<V>。Callable代表一个有返回值得操作。
-Java代码:
+
 
     Callable<Integer> func = new Callable<Integer>(){  
         public Integer call() throws Exception {  
@@ -80,7 +80,7 @@ Java代码:
  ExecutoreService提供了submit()方法，传递一个Callable，或Runnable，返回Future。如果Executor后台线程池还没有完成Callable的计算，这调用返回Future对象的get()方法，会阻塞直到计算完成。
 
 例子：并行计算数组的和。
-Java代码:
+
 ```Java
     package executorservice;  
       
@@ -170,7 +170,7 @@ Java代码:
     }  
 ```
  Main
-Java代码 
+
 ```Java
     int[] numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 10, 11 };  
     ConcurrentCalculator calc = new ConcurrentCalculator();  
@@ -181,7 +181,7 @@ Java代码
  四、CompletionService
 
 在刚在的例子中，getResult()方法的实现过程中，迭代了FutureTask的数组，如果任务还没有完成则当前线程会阻塞，如果我们希望任意字任务完成后就把其结果加到result中，而不用依次等待每个任务完成，可以使CompletionService。生产者submit()执行的任务。使用者take()已完成的任务，并按照完成这些任务的顺序处理它们的结果 。也就是调用CompletionService的take方法是，会返回按完成顺序放回任务的结果，CompletionService内部维护了一个阻塞队列BlockingQueue，如果没有任务完成，take()方法也会阻塞。修改刚才的例子使用CompletionService：
-Java代码:
+
 ```Java
     public class ConcurrentCalculator2 {  
       
